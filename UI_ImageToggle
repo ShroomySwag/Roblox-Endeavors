@@ -1,0 +1,33 @@
+-- Code Used For Toggling UI Items
+
+-- This enables us to create and use Keybinds
+UIS = game:GetService("UserInputService")
+
+-- This Creates us Objects to reference and manipulate 'Visible' variables
+-- *NOTE* Both Script and UI Image are in the same Directory (StarterGui) NOT Separated into StarterGui and StarterPlayer (It wouldn't work this way)
+Phone = script.Parent
+Phone2 = Phone.Image
+
+-- Setup your Object for the Keybind (In this case pressing TAB)
+UIS.InputBegan:Connect(function(input)
+
+-- Tell it we are using the Keyboard
+	if input.UserInputType == Enum.UserInputType.Keyboard then
+
+-- Tell it we are pressing the TAB key
+		if input.KeyCode == Enum.KeyCode.Tab then
+
+--Toggle the Visible field making the UI Image Visible or not Visible
+			Phone2.Visible = not Phone2.Visible
+			
+		end
+	end
+end)
+
+-- RESOURCES
+--[[
+https://www.youtube.com/watch?v=LrssS0105Z8&list=PLhieaQmOk7nK9ob348Yc_PTcIyHjDCnem&index=4
+https://create.roblox.com/docs/reference/engine/classes/PlayerGui
+https://create.roblox.com/docs/reference/engine/enums/KeyCode
+https://create.roblox.com/docs/reference/engine/classes/InputObject
+https://devforum.roblox.com/t/how-to-change-player-gui/571964]]--
